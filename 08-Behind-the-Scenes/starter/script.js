@@ -1,15 +1,18 @@
 'use strict';
 
-function calcAge(birthYear){
-    const age=2037 - birthYear;
-    
-    function printAge(){
-        const output = `You are ${age}, born in ${birthYear}`;
-        console.log(output);
-    }
-    printAge();
-    return age;
-}
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
 
-const firstName = 'Jonas';
-calcAge(1991);
+const me = {
+    name: 'jonas',
+    age: 30,
+};
+
+const friend = me;
+friend.age = 27;
+
+console.log('friend:', friend);
+console.log('me', me);
