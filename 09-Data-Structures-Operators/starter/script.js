@@ -23,13 +23,11 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours, 
+  openingHours,
 
-  order: function(startIndex, mainIndex){
+  order: function (startIndex, mainIndex) {
     return [this.starterMenu[startIndex], this.mainMenu[mainIndex]];
   },
-
-
 };
 
 //Property Names
@@ -51,7 +49,7 @@ console.log(values);
 //Entire Object
 const entries = Object.entries(openingHours);
 
-for (const [day, {open, close}] of entries) {
+for (const [day, { open, close }] of entries) {
   console.log(`On ${day}, we open at ${open} and close at ${close}`);
 }
 
@@ -97,46 +95,54 @@ const game = {
 };
 
 //1
-for (const [i, player] of game.scored.entries()){
-  console.log(`Goal ${i+1}: ${player}.`);
-};
+for (const [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${player}.`);
+}
 
 //2
 const odds = Object.values(game.odds);
 let average = 0;
-for (const odd of Object.values(game.odds)){
-  average += odd; 
+for (const odd of Object.values(game.odds)) {
+  average += odd;
 }
 average /= odds.length;
 console.log(average);
 
 //3
-for (const [team, odd] of Object.entries(game.odds)){
+for (const [team, odd] of Object.entries(game.odds)) {
   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
   console.log(`Odd of ${teamStr}: ${odd}`);
 }
 
-const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
-console.log(ordersSet);
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'Javascript'],
+  ['correct', 3],
+  [true, 'Correct :)'],
+  [false, 'Try again'],
+]);
+console.log(question);
 
-console.log(new Set('Jonas'));
+//Convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
 
-console.log(ordersSet.size);
-console.log(ordersSet.has('Pizza'));
-console.log(ordersSet.has('Bread'));
-ordersSet.add('Garlic Bread');
-ordersSet.add('Garlic Bread');
-ordersSet.delete('Risotto');
-console.log(ordersSet);
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
 
-for (const order of ordersSet) console.log(order);
+//const answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
 
-const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
-const staffUnique = new Set(staff);
-console.log(staffUnique);
+console.log(question.get(question.get('correct') === answer));
 
-const rest = new Map();
-rest.set('name', 'Classico Italiano');
-rest.set(1, 'Firenze, Italy');
-console.log(rest.set(2, 'Lisbon, Portugal'));
-
+// Convert map to array
+console.log([...question]);
+console.log(...question.entries());
+console.log(...question.keys());
+console.log(...question.values());
