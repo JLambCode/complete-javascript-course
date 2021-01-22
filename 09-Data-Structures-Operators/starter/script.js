@@ -30,119 +30,91 @@ const restaurant = {
   },
 };
 
-//Property Names
-const properties = Object.keys(openingHours);
-console.log(properties);
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-let openStr = `We are open on ${properties.length} days: `;
+// const gameEvents = new Map([
+//   [17, '⚽️ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
 
-for (const day of Object.keys(openingHours)) {
-  openStr += `${day}, `;
-}
+// //1
+// const events = new Set(gameEvents.values());
+// console.log(events);
 
-console.log(openStr);
+// //2
+// gameEvents.delete(64);
+// console.log(gameEvents);
 
-//Property Values
-const values = Object.values(openingHours);
-console.log(values);
+// //3
+// const time = [...gameEvents.keys()].pop();
+// console.log(`An event happened, on average, every ${time/gameEvents.size} minutes`);
 
-//Entire Object
-const entries = Object.entries(openingHours);
+// //4
+// for (const [key, values] of gameEvents){
 
-for (const [day, { open, close }] of entries) {
-  console.log(`On ${day}, we open at ${open} and close at ${close}`);
-}
+//   const half = key <= 45 ? 'First' : 'Second';
+//   console.log(`[${half} Half] ${key}: ${values}`)
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+//   //My Solution
+//   // if (key <= 45 && key > 0){
+//   //   console.log(`[First Half] ${key}: ${values}`);
+//   // }
+//   // else if (key > 45 && key < 90){
+//   //   console.log(`[Second Half] ${key}: ${values}`);
+//   // } else if(key >90){
+//   //   console.log(`[Overtime] ${key}: ${values}`);
+//   // }
+// }
 
-//1
-for (const [i, player] of game.scored.entries()) {
-  console.log(`Goal ${i + 1}: ${player}.`);
-}
+const airline = 'TAP Air Portugal';
+const place = 'A320';
 
-//2
-const odds = Object.values(game.odds);
-let average = 0;
-for (const odd of Object.values(game.odds)) {
-  average += odd;
-}
-average /= odds.length;
-console.log(average);
-
-//3
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr}: ${odd}`);
-}
-
-const question = new Map([
-  ['question', 'What is the best programming language in the world?'],
-  [1, 'C'],
-  [2, 'Java'],
-  [3, 'Javascript'],
-  ['correct', 3],
-  [true, 'Correct :)'],
-  [false, 'Try again'],
-]);
-console.log(question);
-
-//Convert object to map
-console.log(Object.entries(openingHours));
-const hoursMap = new Map(Object.entries(openingHours));
-console.log(hoursMap);
-
-console.log(question.get('question'));
-for (const [key, value] of question) {
-  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
-}
-
-//const answer = Number(prompt('Your answer'));
-const answer = 3;
-console.log(answer);
-
-console.log(question.get(question.get('correct') === answer));
-
-// Convert map to array
-console.log([...question]);
-console.log(...question.entries());
-console.log(...question.keys());
-console.log(...question.values());
+console.log(plane[0]);
