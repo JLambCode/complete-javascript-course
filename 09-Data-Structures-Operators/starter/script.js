@@ -115,6 +115,21 @@ const restaurant = {
 // }
 
 const airline = 'TAP Air Portugal';
-const place = 'A320';
+const plane = 'A320';
 
-console.log(plane[0]);
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+const passenger = 'jOnAS';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase()+ passengerLower.slice(1);
+console.log(passengerCorrect);
+
+const correctPunctuation = function(string){
+  const inputLower = string.toLowerCase();
+  const outputCorrect = inputLower[0].toUpperCase()+inputLower.slice(1);
+  console.log(outputCorrect);
+  return outputCorrect;
+}
+
+correctPunctuation('jOnAS');
