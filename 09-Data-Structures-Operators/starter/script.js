@@ -179,8 +179,61 @@ const restaurant = {
 // checkBaggage('Socks and camera');
 // checkBaggage('Got some snacks and a gun for protection');
 
-console.log('a+very+nice+string'.split('+'));
+// console.log('a+very+nice+string'.split('+'));
 
-const [firstName, lastName] = 'Jeremy Lamb'.split(' ');
+// const [firstName, lastName] = 'Jeremy Lamb'.split(' ');
 
-['Mr.', ]
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
+
+// const capitalizeName = function(name){
+//     const names = name.split(' ');
+//     const namesUpper = [];
+
+//     for(const n of names){
+//       // namesUpper.push(n[0].toUpperCase()+n.slice(1));   
+//       namesUpper.push(n.replace(n[0], n[0].toUpperCase())); 
+//     }
+//     console.log(namesUpper.join(' '));
+// }
+
+// capitalizeName('jessica ann smith davis');
+// capitalizeName('jonas schmedtmann');
+
+// const maskCreditCard = function (number){
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+// }
+
+// console.log(maskCreditCard(1234567890));
+// console.log(maskCreditCard('12345467890'));
+
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+
+// document.querySelector('button').addEventListener('click', function () {
+//   const text = document.querySelector('textarea').value;
+//   const rows = text.split('\n');
+
+//   for(const [i, row] of rows.entries()){
+//     const [first, second] = row.toLowerCase().trim().split('_');
+
+//     const output = `${first}${second.replace(second[0], second[0].toUpperCase())}`;
+//     console.log(`${output.padEnd(20)}${'$'.repeat(i+1)}`);
+//   }
+// });
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+const flights = '_Delayed_Departure;fao93766109;txl2133758440;11:25'
++'+_Arrival;bru09433847222;fao93766109;11:45'
++'+_Delayed_Arrival;hel7439299980;fao93766109;12:05'
++'+_Departure;fao93766109;lis2323639855;12:30';
+
+for (const flight of flights.split('+')){
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? 'RED LIGHT': ''}${type.replaceAll('_', ' ')} from ${getCode(from)} to ${getCode(to)} (${time.replace(':', 'h')})`;
+  console.log(output.padStart(36));
+}
+
