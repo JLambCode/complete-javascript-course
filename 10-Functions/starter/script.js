@@ -80,18 +80,25 @@
 
 // ['Jonas', 'Martha', 'Adam'].forEach(high5);
 
-const greet = function (greeting) {
-  return function (name) {
-    console.log(`${greeting} ${name}`);
-  };
+// const greet = function (greeting) {
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
+
+// const greeterHey = greet('Hey');
+
+// greeterHey('Jonas');
+// greeterHey('Steven');
+
+// const greetArrow = greeting => greetName =>
+//   console.log(`${greeting} ${greetName}`);
+
+// greetArrow('Hello')('Jeremy');
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book() {},
 };
-
-const greeterHey = greet('Hey');
-
-greeterHey('Jonas');
-greeterHey('Steven');
-
-const greetArrow = greeting => greetName =>
-  console.log(`${greeting} ${greetName}`);
-
-greetArrow('Hello')('Jeremy');
