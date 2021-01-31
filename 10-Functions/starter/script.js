@@ -26,22 +26,39 @@
 
 // createBooking('LH123', undefined, 1000);
 
-const flight = 'LH234';
-const jonas = {
-    name: 'Jonas Schmedtmann',
-    passport: 123123123
-}
+// const flight = 'LH234';
+// const jonas = {
+//   name: 'Jonas Schmedtmann',
+//   passport: 123123123,
+// };
 
-const checkIn = function (flightNum, passenger){
-    flightNum = 'LH999';
-    passenger.name = 'Mr.' + passenger.name;
+// const checkIn = function (flightNum, passenger) {
+//   flightNum = 'LH999';
+//   passenger.name = passenger.name;
 
-    if(passenger.passport === 123123123){
-        alert('Check In');
-    }
-    else{
-        alert('Wrong passport!');
-    }
-}
+//   if (passenger.passport === 123123123) {
+//     alert('Check In');
+//   } else {
+//     alert('Wrong passport!');
+//   }
+// };
 
-checkIn(flight, jonas);
+// checkIn(flight, jonas);
+// console.log(flight);
+// console.log(jonas);
+
+// const newPassport = function (person) {
+//   person.passport = Math.trunc(Math.random() * 100000000);
+// };
+
+// newPassport(jonas);
+// console.log(checkIn(flight, jonas));
+
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowercase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
