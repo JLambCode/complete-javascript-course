@@ -196,3 +196,37 @@
 // poll.displayResults.call({answers: [5,2,3]}, 'string');
 // poll.displayResults.call({answers: [1,5,3,9,6,1]}, 'string');
 
+// const runOnce = function(){
+//     console.log('This will never run again');
+// }
+
+// //IIFE (Immediately Invoked Function Expression)
+// (function(){
+//     console.log('This will only run once');
+// })();
+
+// (() => console.log('This will ALSO only run once'))();
+
+// const secureBooking = function(){
+//     let passengerCount = 0;
+//     return function(){
+//         passengerCount++;
+//         console.log(`${passengerCount} passenger(s).`);
+//     }
+// }
+
+// const booker = secureBooking();
+
+// booker();
+// booker();
+// booker();
+
+(function(){
+    const header = document.querySelector('h1');
+    header.style.color = 'red';
+
+    document.querySelector('body').addEventListener('click', function(){
+        header.style.color = 'blue';
+    })
+})();
+
