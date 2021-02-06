@@ -75,22 +75,32 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
-let arr = ['a','b','c', 'd','e'];
+// let arr = ['a', 'b', 'c', 'd', 'e'];
 
-console.log(arr.splice(2));
+// console.log(arr.splice(2));
 
-for (const movement of movements){
-  if(movement > 0){
-    console.log(`You deposited ${movement}`);
-  } else {
-    console.log(`You withdrew ${Math.abs(movement)}`);
-  }
-}
+// for (const movement of movements) {
+//   if (movement > 0) {
+//     console.log(`You deposited ${movement}`);
+//   } else {
+//     console.log(`You withdrew ${Math.abs(movement)}`);
+//   }
+// }
 
-movements.forEach(function(movement){
-  if(movement > 0){
-    console.log(`You deposited ${movement}`);
-  } else {
-    console.log(`You withdrew ${Math.abs(movement)}`);
-  }
-})
+// movements.forEach(function (mov, i, arr) {
+//   if (mov > 0) {
+//     console.log(`Movement ${i + 1} You deposited ${mov}`);
+//   } else {
+//     console.log(`Movement ${i + 1} You withdrew ${Math.abs(mov)}`);
+//   }
+// });
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+
+currenciesUnique.forEach(function (value, _, map) {
+  console.log(`${value}: ${value}`);
+});
