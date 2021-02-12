@@ -84,14 +84,12 @@ displayMovements(account1.movements);
 
 const createUsername = function (accts) {
   accts.forEach(function (accts) {
-    user
+    accts.username = accts.owner
       .toLowerCase()
       .split(' ')
       .map(name => name[0])
       .join('');
   });
-
-  return username;
 };
 createUsername(accounts);
 
@@ -184,3 +182,15 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // );
 // console.log(movementsDescriptions);
 // console.log(movements);
+
+// const deposits = movements.filter(function (mov) {
+//   return mov > 0;
+// });
+// console.log(movements);
+// console.log(deposits);
+
+// const withdrawals = movements.filter(function (mov) {
+//   return mov < 0;
+// });
+
+// console.log(withdrawals);
