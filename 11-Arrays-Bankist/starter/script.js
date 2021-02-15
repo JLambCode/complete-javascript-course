@@ -209,19 +209,50 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //    return acc + cur;
 //  },0);
 
-const balance = movements.reduce((acc, cur) => acc + cur, 0);
+// const balance = movements.reduce((acc, cur) => acc + cur, 0);
 
-console.log(balance);
+// console.log(balance);
 
-let balance2 = 0;
-for (const mov of movements) balance2 += mov;
-console.log(balance2);
+// let balance2 = 0;
+// for (const mov of movements) balance2 += mov;
+// console.log(balance2);
 
-const max = movements.reduce((acc, mov) => {
-  if (acc > mov) {
-    return acc;
-  } else {
-    return mov;
-  }
-}, movements[0]);
-console.log(max);
+// const max = movements.reduce((acc, mov) => {
+//   if (acc > mov) {
+//     return acc;
+//   } else {
+//     return mov;
+//   }
+// }, movements[0]);
+// console.log(max);
+
+// const dogAges1 = [5, 2, 4, 1, 15, 8, 3];
+// const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
+
+// const calcAverageHumanAge = function (dogAges) {
+//   const humanAges = dogAges.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+//   const adults = humanAges.filter(age => age >= 18);
+//   console.log(humanAges);
+//   console.log(adults);
+
+//   const avgAge = adults.reduce((acc, age) => acc + age, 0) / adults.length;
+
+//   return avgAge;
+// };
+
+// calcAverageHumanAge(dogAges1);
+// calcAverageHumanAge(dogAges2);
+
+// const avg1 = calcAverageHumanAge(dogAges1);
+
+// const avg2 = calcAverageHumanAge(dogAges2);
+
+// console.log(avg1, avg2);
+const eurToUsd = 1.1;
+
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDepositsUSD);
