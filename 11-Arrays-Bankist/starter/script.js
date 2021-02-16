@@ -100,6 +100,30 @@ const calcDisplayBalance = function (movements) {
 
 calcDisplayBalance(account1.movements);
 
+const calcDisplaySummary = function(movements){
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes} EUR`;
+  
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)} EUR`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => deposit *1.2/100)
+    .filter((int, i, arr) => {
+      console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int)=> acc + int, 0);
+  labelSumInterest.textContent = `${interest} EUR`;
+}
+calcDisplaySummary(account1.movements);
+
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -248,11 +272,25 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // const avg2 = calcAverageHumanAge(dogAges2);
 
 // console.log(avg1, avg2);
-const eurToUsd = 1.1;
 
-const totalDepositsUSD = movements
-  .filter(mov => mov > 0)
-  .map(mov => mov * eurToUsd)
-  .reduce((acc, mov) => acc + mov, 0);
+// const dogAges1 = [5, 2, 4, 1, 15, 8, 3];
+// const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
 
-console.log(totalDepositsUSD);
+// const calcAverageHumanAge = ages => ages
+// .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+// .filter(age=>age>=18)
+// .reduce((acc,age,i,arr) => acc + age / arr.length, 0);
+
+// const avg1 = calcAverageHumanAge(dogAges1);
+// const avg2 = calcAverageHumanAge(dogAges2);
+
+// console.log(avg1, avg2);
+
+// const eurToUsd = 1.1;
+
+// const totalDepositsUSD = movements
+//   .filter(mov => mov > 0)
+//   .map(mov => mov * eurToUsd)
+//   .reduce((acc, mov) => acc + mov, 0);
+
+// console.log(totalDepositsUSD);
