@@ -172,6 +172,19 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function(e){
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+
+  if(amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)){
+    currentAccount.movements.push(amount);
+    updateUI(currentAccount);
+  } else {
+    alert('Loan request amount is too high');
+  }
+  inputLoanAmount.value = '';
+})
+
 btnClose.addEventListener('click', function(e){
   e.preventDefault();
   if(currentAccount.username === inputCloseUsername.value && 
@@ -179,9 +192,12 @@ btnClose.addEventListener('click', function(e){
   {
     const index = accounts.findIndex(acc => acc.username === currentAccount.username)
     accounts.splice(index, 1);
+    containerApp.style.opacity = 0;
+    alert('Your account has been successfully closed')
   } else {
     alert('Error: Incorrect username or pin')
   }
+  inputCloseUsername.value = inputClosePin.value = '';
 })
 
 /////////////////////////////////////////////////
@@ -363,3 +379,30 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 // console.log(account);
+
+
+// const anyDeposits = movements.some(mov => mov > 1500);
+// console.log(anyDeposits);
+
+// console.logmovements.every(mov => mov > 0));
+
+const arr = [[1,2,3], [4,5,6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1,2] ,3], [4, [5,6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+const overallBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(overallBalance);
+
+const overallBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(overallBalance2);
+
+
