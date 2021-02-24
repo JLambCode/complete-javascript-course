@@ -168,9 +168,21 @@ btnTransfer.addEventListener('click', function (e) {
     receiverAcc.movements.push(amount);
     updateUI(currentAccount);
   } else {
-    alert('Insufficient funds or incorrect username');
+    alert('Error: Insufficient funds or incorrect username');
   }
 });
+
+btnClose.addEventListener('click', function(e){
+  e.preventDefault();
+  if(currentAccount.username === inputCloseUsername.value && 
+    currentAccount.pin === Number(inputClosePin.value))
+  {
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username)
+    accounts.splice(index, 1);
+  } else {
+    alert('Error: Incorrect username or pin')
+  }
+})
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
