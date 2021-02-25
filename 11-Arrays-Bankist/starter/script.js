@@ -62,7 +62,7 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 const displayMovements = function (movements, sort = false) {
-  containerMovements.innerHTML = '';
+  containerMovements.innerHTML = ''; 
 
   const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
@@ -198,6 +198,13 @@ btnClose.addEventListener('click', function(e){
     alert('Error: Incorrect username or pin')
   }
   inputCloseUsername.value = inputClosePin.value = '';
+})
+
+let sorted = false;
+btnSort.addEventListener('click', function(e){
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 })
 
 /////////////////////////////////////////////////
@@ -386,23 +393,46 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.logmovements.every(mov => mov > 0));
 
-const arr = [[1,2,3], [4,5,6], 7, 8];
-console.log(arr.flat());
+// const arr = [[1,2,3], [4,5,6], 7, 8];
+// console.log(arr.flat());
 
-const arrDeep = [[[1,2] ,3], [4, [5,6]], 7, 8];
-console.log(arrDeep.flat(2));
+// const arrDeep = [[[1,2] ,3], [4, [5,6]], 7, 8];
+// console.log(arrDeep.flat(2));
 
-const overallBalance = accounts
-  .map(acc => acc.movements)
-  .flat()
-  .reduce((acc, mov) => acc + mov, 0);
+// const overallBalance = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(overallBalance);
+// console.log(overallBalance);
 
-const overallBalance2 = accounts
-  .flatMap(acc => acc.movements)
-  .reduce((acc, mov) => acc + mov, 0);
+// const overallBalance2 = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(overallBalance2);
+// console.log(overallBalance2);
 
+// const x = new Array(7);
+// console.log(x);
+
+// x.fill(1, 3);
+// console.log(x);
+
+// const y = Array.from({length: 7}, () => 1);
+// console.log(y);
+
+// const z = Array.from({length: 7}, (_, i) => i +1);
+// console.log(z);
+
+// const randDiceRoll100 = Array.from({length: 100}, () => Math.abs(Math.random * 1))
+// console.log(randDiceRoll100);
+
+// const movementsUI = Array.from(document.querySelectorAll('.movements__value'));
+
+// labelBalance.addEventListener('click', function(){
+//   const movementsUI = Array.from(document.querySelectorAll('.movements__value'));
+//   el => Number(el.textContent.replace('€',''));
+// })
+
+// console.log(movementsUI.map(el => Number(el.textContent.replace('€',''))));
 
