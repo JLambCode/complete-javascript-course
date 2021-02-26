@@ -436,3 +436,14 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(movementsUI.map(el => Number(el.textContent.replace('€',''))));
 
+const bankDepositSum = accounts.flatMap(acc => acc.movements).filter(mov => mov > 0).reduce((sum, cur) => sum + cur, 0);
+
+console.log(bankDepositSum);
+
+const numDeposits1000 = accounts.flatMap(acc => acc.movements).reduce((count, cur) => cur >= 1000 ? ++count : count, 0);
+
+console.log(numDeposits1000);
+
+const sums = accounts.flatMap(acc => acc.movements).reduce((sums, cur) => {
+  cur > 0 ? sums.deposits += cur : sums.withdrawals += cur;
+}, {deposits: 0, withdrawals: 0})
