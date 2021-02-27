@@ -203,6 +203,13 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -393,6 +400,37 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // const arrDeep = [[[1,2] ,3], [4, [5,6]], 7, 8];
 // console.log(arrDeep.flat(2));
+// <<<<<<< HEAD
+
+// // const overallBalance = accounts
+// //   .map(acc => acc.movements)
+// //   .flat()
+// //   .reduce((acc, mov) => acc + mov, 0);
+
+// // console.log(overallBalance);
+
+// // const overallBalance2 = accounts
+// //   .flatMap(acc => acc.movements)
+// //   .reduce((acc, mov) => acc + mov, 0);
+
+// // console.log(overallBalance2);
+
+// const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+// console.log(owners.sort());
+
+// // movements.sort((a, b) => {
+// //   if (a > b) {
+// //     return -1;
+// //   }
+// //   if (b > a) {
+// //     return 1;
+// //   }
+// // });
+
+// movements.sort((a, b) => a - b);
+
+// console.log(movements);
+// =======
 
 // const overallBalance = accounts
 //   .map(acc => acc.movements)
@@ -407,18 +445,38 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(overallBalance2);
 
-const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
-console.log(owners.sort());
+// const x = new Array(7);
+// console.log(x);
 
-// movements.sort((a, b) => {
-//   if (a > b) {
-//     return -1;
-//   }
-//   if (b > a) {
-//     return 1;
-//   }
-// });
+// x.fill(1, 3);
+// console.log(x);
 
-movements.sort((a, b) => a - b);
+// const y = Array.from({length: 7}, () => 1);
+// console.log(y);
 
-console.log(movements);
+// const z = Array.from({length: 7}, (_, i) => i +1);
+// console.log(z);
+
+// const randDiceRoll100 = Array.from({length: 100}, () => Math.abs(Math.random * 1))
+// console.log(randDiceRoll100);
+
+// const movementsUI = Array.from(document.querySelectorAll('.movements__value'));
+
+// labelBalance.addEventListener('click', function(){
+//   const movementsUI = Array.from(document.querySelectorAll('.movements__value'));
+//   el => Number(el.textContent.replace('€',''));
+// })
+
+// console.log(movementsUI.map(el => Number(el.textContent.replace('€',''))));
+
+// const bankDepositSum = accounts.flatMap(acc => acc.movements).filter(mov => mov > 0).reduce((sum, cur) => sum + cur, 0);
+
+// console.log(bankDepositSum);
+
+// const numDeposits1000 = accounts.flatMap(acc => acc.movements).reduce((count, cur) => cur >= 1000 ? ++count : count, 0);
+
+// console.log(numDeposits1000);
+
+// const sums = accounts.flatMap(acc => acc.movements).reduce((sums, cur) => {
+//   cur > 0 ? sums.deposits += cur : sums.withdrawals += cur;
+// }, {deposits: 0, withdrawals: 0})
