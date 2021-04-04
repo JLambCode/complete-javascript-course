@@ -542,3 +542,16 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //8
 // const dogsCopy = dogs.slice().sort((a,b) => a.recFood - b.recFood);
 // console.log(dogsCopy);
+
+const stockPrices = [10, 7, 5, 8, 11, 9];
+
+let getMaxProfit = function (data) {
+  let lowestPrice = Math.min(...data);
+  let highestPrice = Math.max(...data);
+
+  console.log(
+    `The best profit I could have made yesterday from one purchase was ${lowestPrice} and from one sale was ${highestPrice}.`
+  );
+};
+
+getMaxProfit(stockPrices);
